@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Tuan3_NguyenDucThong.Models.TheLoai>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>/v1/api/detail</h2>
+<table class="styled-table">
+    <tr class="active-row">
+        <th>Ma The Loai</th>
+        <th>Ten The Loai</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.maloai</td>
+            <td>@item.tenloai</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.maloai }, new { @class = "btn btn-success" })     
+                @Html.ActionLink("Detail", "Detail", new { id = item.maloai }, new { @class = "btn btn-success" }) 
+                @Html.ActionLink("Delete", "Delete", new { id = item.maloai }, new { @class = "btn btn-success" }) 
+
+            </td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Create", "Create", "The Loai", new { @class = "btn btn-success" })
